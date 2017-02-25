@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name='viewport' content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>数据报表</title>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="laydate/laydate.js"></script>
+<script>
+//REM 设置
+// JavaScript Document
+(function(doc,win){
+			var docEl = doc.documentElement,resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function(){
+				var clientWidth = dth;
+				if(!clientWidth) return;ocEl.clientWid
+				if(clientWidth>=640){
+					docEl.style.fontSize = '100px';
+				}
+				else{
+					docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+				}
+			};
+			if (!doc.addEventListener) return;
+	        win.addEventListener(resizeEvt, recalc, false);
+	        doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document,window);
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	card =getCookie('username');
+	if(card==""){
+		window.location.href = "login.html";
+	}else{
+		dianname =getCookie('dianname');
+		$("#huiyishi").val(dianname);
+		}
+})
+</script>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	width:100%;
+	overflow:hidden;
+	background:#f5f5f5;
+	font-family:"微软雅黑", "宋体", "方正兰亭超细黑简体";
+}
+.top{
+	width:100%;
+	height:1rem;
+	line-height:1rem;
+	
+	overflow:hidden;
+	position:relative;
+	font-size:0.3rem;
+	margin-bottom:0.3rem;
+	color:#999;
+	box-shadow: 2px 2px 10px #909090;
+	-webkit-box-shadow: 2px 2px 10px #909090;
+	
+}
+.top img{
+	width:1.9rem;
+	height:0.5rem;
+	position:relative;
+	left:0.2rem;
+	top:0.1rem;
+}
+.user{
+	margin-bottom:0.2rem;
+	background: #fff;
+	box-sizing: border-box;
+	height:0.7rem;
+	border:1px #dcdcdc solid;
+	width:6rem;
+	padding-left:0.2rem;
+	line-height:0.7rem;
+	margin-left:0.2rem;
+	overflow:hidden;
+	font-size:0.3rem;
+}
+.user input{
+	font-size:0.3rem;
+	color: #999;
+	border:none;
+	height:0.5rem;
+	line-height:0.5rem;
+	outline: none;
+	width:3.8rem;
+}
+.login{
+	width: 6rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: center;
+    background: #ff6666;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    margin-left: 0.2rem;
+    margin-top: 0.4rem;
+	font-size:0.3rem;
+
+}
+#laydate_box{
+	left:20%;
+	}
+.ceshi{
+	display:none;
+	width:100%;
+	height:100%;
+	position:fixed;
+	background:#000;
+	opacity:.3;
+	z-index:9;
+	
+	}
+.ceshiwenzi{
+	display:none;
+	width:4.6rem;
+	height:5rem;
+	background:#FFF;
+	position:absolute;
+	top:22%;
+	left:50%;
+	margin-left:-2.3rem;
+	text-align:center;
+	line-height:1rem;
+	border-radius:10px;
+	z-index:99;
+}
+.ceshiok{
+	background:#ff6666;
+	width:2rem;
+	height:0.7rem;
+	z-index:9999999;
+	position:absolute;
+	top:85%;
+	left:25%;
+	margin-left:-1rem;
+	line-height:0.7rem;
+	border-radius:5px;
+	color:#FFF;
+	margin-top:-0.2rem;
+}
+.ceshino{
+	background:#dcdcdc;
+	width:2rem;
+	height:0.7rem;
+	z-index:9999999;
+	position:absolute;
+	top:85%;
+	right:3%;
+	margin-left:-1rem;
+	line-height:0.7rem;
+	border-radius:5px;
+	color:#FFF;
+	margin-top:-0.2rem;
+}
+.big{
+	font-size:0.3rem;
+}
+.hong{
+	color:#ff6666;
+}
+</style>
+</head>
+
+<body>
+<div class="ceshi">
+</div>
+<div class="big hui ceshiwenzi">
+    	<div>您于<span id="shijian" class="hong"></span>已经提交过数据</div>
+        <div style="text-align:left; margin-left:0.2rem;">销售金额：<span id="jiner"  class="hong"></span></div>
+        <div style="text-align:left; margin-left:0.2rem;">交易笔数：<span id="bishu"  class="hong"></span></div>
+        <div>是否进行覆盖？</div>
+        <div class="ceshiok" id="ceshiok">确定</div>
+        <div class="ceshino" id="ceshino">取消</div>
+</div>
+<div class="top" style="margin-bottom:0.8rem;">
+	<img src="images/3.png" />
+    <span style="margin-left:0.2rem">中南商业销售上传系统</span>
+</div>
+<div class="big"></div>
+<div class="user">
+	<label>店铺名字：</label>
+	<input type="text" id="huiyishi"  readonly/>
+</div>
+<div class="user">
+	<label>销售日期：</label>
+	<input type="text"   id="start" readonly placeholder="请输入时间"/>
+ 
+</div>
+<!--div class="user">
+	<label>结束时间：</label>
+    <input type="text"  id="end" readonly placeholder="请输入结束时间"/>
+</div-->
+<div class="user">
+	<label>销售金额：</label>
+	<input type="text" id="username"  placeholder="请输入金额"  />
+</div>
+<div class="user">
+	<label>交易笔数：</label>
+	<input type="text" id="dianhua"  placeholder="请输入单数"  />
+</div>
+<!--div class="user">
+	<label>部门：</label>
+	<input type="text" id="bumen"  placeholder="请输入您的部门"  />
+</div>
+<div class="user">
+	<label>主题：</label>
+	<input type="text" id="zhuti"  placeholder="请输入主题（最多20字符）"  />
+</div-->
+
+<div class="login big fl">
+					立即提交
+</div><!--a class="login" href="chaxun.html" style="display:block; text-decoration:none;">
+			会议室查询
+</a-->
+</body>
+<script type="text/javascript">
+function GetDateStr(AddDayCount) { 
+var dd = new Date(); 
+dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期 
+var y = dd.getFullYear(); 
+var m = dd.getMonth()+1;//获取当前月份的日期 
+var d = dd.getDate(); 
+return y+"-"+m+"-"+d; 
+} 
+$("#start").val(GetDateStr(-1));
+laydate({
+  elem: '#start', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+  event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+});
+
+
+</script>
+<script>
+	$(".login").click(function(){
+			if(yanzheng()){
+				yuding();
+				
+				}
+			else{
+				//alert("恭喜预订 失败")
+				}
+			
+			}
+	)
+	
+	
+function yanzheng(){
+			var $starTime = $("#start").val();
+			var $username = $("#username").val();
+			if($starTime==""){
+				alert("请选择时间");
+				return false;
+				}
+			if($username==""){      
+				alert("请输入交易金额");
+				return false;
+				}
+			if($("#dianhua").val()==""){
+				alert("请输入交易笔数");
+				return false;
+				}
+			else{
+				return true;
+				}
+}
+
+function yuding(){
+	var $starTime = $("#start").val();
+	var $username = $("#username").val();
+	var $bishu=$("#dianhua").val();
+	$.ajax({
+		type: "POST",
+		datatype:"json",	
+		url:"/ZNWeb/api/xsuser/postgwzxp",	
+		data:{userName:card,sj:$starTime,xse:$username,xsbs:$bishu},
+		success:function(data){
+		var ajaxobj =data['header'];
+		console.log(data);
+		if(ajaxobj.errCode==0){
+				alert("提交成功");
+				$(".login").unbind("click");
+				$(".login").css("background","#999");				
+				}
+							
+			
+			else{
+				alert(ajaxobj.errMsg);
+				}
+						
+		}
+	})
+			
+			
+	
+}
+$("#ceshiok").click(function(){
+	var $starTime = $("#start").val();
+	var $username = $("#username").val();
+	var $bishu=$("#dianhua").val();
+	$.ajax({
+		type: "POST",
+		datatype:"json",	
+		url:"/ZNWeb/api/xsuser/update",	
+		data:{userName:card,sj:$starTime,xse:$username,xsbs:$bishu},
+		success:function(data){
+			var ajaxobj =data['header'];
+		 	if(ajaxobj.errCode==0){
+				alert("提交成功");
+				$(".login").unbind("click");
+				$(".login").css("background","#999");
+				$(".ceshi").hide();			
+				$('.ceshiwenzi').hide();
+				}
+			else{
+				alert(ajaxobj.errMsg);
+				}
+			
+		}
+	
+	})
+});
+$("#ceshino").click(function(){
+	$(".ceshi").hide();			
+	$('.ceshiwenzi').hide();
+	})
+</script>
+</html>

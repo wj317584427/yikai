@@ -1,0 +1,211 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.logo{
+	height: 98px;
+    overflow: hidden;
+	margin: 0 auto;
+    width: 990px;
+    
+}
+.warp{
+	position: relative;
+    background: #fff url(../denglu/img/denglu.png) no-repeat left top;
+    width: 988px;
+    margin: 0 auto;
+    min-height: 335px;
+    color: #5e5e5e;
+    border: #e6e6e6 1px solid;
+    border-top: #0083ce 3px solid;
+    -webkit-box-shadow: -1px 1px 10px #EFEFEF, -1px 10px 10px #EFEFEF;
+    -moz-box-shadow: -1px 1px 10px #EFEFEF, -1px 10px 10px #EFEFEF;
+    box-shadow: -1px 1px 10px #EFEFEF, -1px 10px 10px #EFEFEF;
+    padding-top: 8px;
+
+}
+.warp-leftA{
+	outline-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: -9999px;
+    display: block;
+    width: 560px;
+    height: 363px;
+}
+.tilte{
+	padding-left: 588px;
+	font: 20px "microsoft yahei";
+    margin: 13px 0;
+    
+    padding-right: 18px;
+}
+.zhuce{
+	float: right;
+    font-size: 12px;
+    margin-top: 7px;
+    font-family: \5b8b\4f53;
+}
+.zhuce-a{
+	color: #0083ce;
+}
+.form{	
+	    padding-left: 588px;
+}
+.form-box{
+	min-height: 70px;
+}
+.form-box input{
+	display: block;
+    width: 286px;
+    height: 26px;
+    padding: 6px 12px 6px 40px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid #e6e6e6;
+    -webkit-appearance: none;
+}
+.form-box .tanchu{
+	display: none;
+	color: red;
+	font-size: 13px;
+	height: 26px;
+    width: auto;
+   	line-height: 26px;
+    padding-right: 25px;
+    margin-top: 4px;
+   
+}
+
+.wangji{
+	margin-top: 4px;
+	margin-right: 54px;
+	float:right;
+	color: #999;
+}
+.wangji:hover{
+	color: #0083ce;;
+}
+.miandenglu{
+	min-height: 20px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    padding-left: 20px;
+    vertical-align: middle;
+	
+}
+.miandenglu input{
+	float: left;
+   	margin-top: 3px;
+   	margin-right: 4px;
+}
+.miandenglu span{
+	line-height: 12px;
+
+    
+    color: #a5a5a5;
+}
+#btn{
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background-color: #0099F1;
+    width: 340px;
+    border-bottom: #0083ce 2px solid;
+    color: #fff;
+    font: 18px "microsoft yahei";
+}
+.reg-login{
+	min-height: 70px;
+    _height: 70px;
+    width: 340px;
+    position: relative;
+	padding-bottom: 15px;
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+}
+.reg-login p{
+	font-size: 12px;
+	margin-top: 10px;
+    line-height: 24px;
+    color: #5e5e5e;
+}
+.reg-login a{
+	background: url(img/3.png) no-repeat left top;
+    display: block;
+    float: left;
+    height: 39px;
+    margin-right: 18px;
+    width: 39px;
+    border: none;
+    opacity: .6;
+}
+.reg-login a:hover{
+	opacity: 1;
+}
+.reg-login .a1{
+	    background-position: 0px -52px;
+}
+.reg-login .a2{
+	    background-position: -48px -52px;
+}
+.reg-login .a3{
+	
+	    background-position: -96px -52px;
+}
+.reg-login .a4{
+	    background-position: -143px -52px;
+}
+.reg-login .a5{
+	    background-position: -241px -52px;
+}
+
+.reg-login .a6{
+	background-position: -191px -52px;
+	margin-right: 0px;
+}
+.ft{
+	width: 980px;
+    margin: 50px auto 20px auto;
+    text-align: center;
+}
+.ft p{
+	color: #A5A5A5;
+	margin-top: 10px;
+}
+.ft p a{
+	
+	color: #666;
+    margin: 0 8px;
+   
+}
+.ft p a:hover{
+	text-decoration: underline;
+	color: #0099F1;
+}
+
+    
